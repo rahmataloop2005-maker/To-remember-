@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>To remember.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500&family=Caveat:wght@500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4EDDF;--card:#FBF7EF;--ter:#A65F48;--sage:#89917A;--br:#88796B;--ink:#4b3f35;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .3 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a231e;--card:#3a3029;--ink:#efe6d6;--br:#bfae9c;--ter:#d58a70;--sage:#a3ab94}}
+:root[data-theme="dark"]{--bg:#2a231e;--card:#3a3029;--ink:#efe6d6;--br:#bfae9c;--ter:#d58a70;--sage:#a3ab94}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 60px);background:var(--bg)}
+body{margin:0;background:var(--bg) var(--grain);color:var(--ink);font:16px/1.65 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;margin:0;font-weight:600}
+.hand{font-family:'Caveat','Segoe Script',cursive}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px dashed var(--br);display:flex;justify-content:center;gap:clamp(12px,3.5vw,34px);padding:12px 10px;overflow-x:auto}
+nav a{white-space:nowrap;color:var(--br);text-decoration:none;font:600 1.2rem 'Cormorant Garamond',serif;transition:color .2s}
+nav a:hover{color:var(--ter)}
+section{max-width:1080px;margin:0 auto;padding:72px 20px 24px}
+.hd{text-align:center;margin-bottom:36px}.hd .hand{color:var(--ter);font-size:1.5rem}.hd h2{font-size:clamp(2.4rem,7vw,3.6rem)}
+.hd p{max-width:520px;margin:6px auto 16px;color:var(--br)}
+.btn{background:var(--ter);color:#fff;border:1px solid var(--ter);border-radius:3px;padding:10px 20px;font:500 .95rem 'DM Sans',sans-serif;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg);box-shadow:0 6px 14px rgba(80,60,40,.25)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px dashed var(--br)}
+.sm{background:none;border:0;color:var(--ter);font:500 .8rem 'DM Sans',sans-serif;cursor:pointer;padding:2px 6px;text-decoration:underline}
+#home{min-height:calc(100vh - 56px);display:grid;gap:48px;align-items:center;padding-top:40px}
+@media(min-width:840px){#home{grid-template-columns:1.15fr .85fr}}
+h1{font-size:clamp(4.4rem,17vw,9.5rem);line-height:.88;font-style:italic;letter-spacing:-.02em}
+h1 span{color:var(--ter)}
+.lead{font:italic 500 clamp(1.2rem,3vw,1.5rem)/1.45 'Cormorant Garamond',serif;max-width:520px;margin:22px 0 14px}
+.tag{color:var(--sage);font-weight:500;margin:0 0 22px}
+.credit{font-size:1.9rem;color:var(--ter);border-top:1px dashed var(--br);padding-top:12px;display:inline-block}
+.pol{position:relative;background:#fffdf8;color:#4b3f35;padding:12px 12px 10px;box-shadow:0 8px 22px rgba(70,50,30,.28);transform:rotate(var(--r,0deg));transition:transform .3s,box-shadow .3s;margin:0}
+.pol:hover{transform:rotate(0) scale(1.03);box-shadow:0 14px 30px rgba(70,50,30,.35);z-index:2}
+.pol img,.ph{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#ece3d0}
+.pol figcaption{font:600 1.45rem/1.2 'Caveat',cursive;text-align:center;padding:10px 4px 2px;min-height:2.2rem;word-break:break-word}
+.tape{position:absolute;top:-13px;left:50%;width:96px;height:28px;margin-left:-48px;transform:rotate(-4deg);background:rgba(166,95,72,.5);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.tape.g{background:rgba(137,145,122,.6);transform:rotate(3deg)}
+.big{max-width:390px;margin:0 auto;--r:3deg;cursor:pointer}
+.ph{display:grid;place-items:center;text-align:center;padding:20px;border:2px dashed #b8a58a;color:#88796B;font:600 1.5rem 'Caveat',cursive}
+.stamp{position:absolute;right:-16px;bottom:56px;width:92px;height:92px;border:3px double var(--ter);border-radius:50%;color:var(--ter);background:rgba(255,253,248,.85);display:grid;place-items:center;text-align:center;font:600 .66rem/1.3 'DM Sans',sans-serif;letter-spacing:.12em;transform:rotate(14deg);cursor:pointer;padding:0}
+.stamp b{font:600 1.5rem 'Caveat',cursive;letter-spacing:0;display:block}
+.ctl{display:flex;justify-content:center;gap:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:34px 26px;padding:10px 6px}
+.empty{grid-column:1/-1;text-align:center;color:var(--br);font:italic 1.3rem 'Cormorant Garamond',serif}
+.tl{position:relative;max-width:720px;margin:0 auto;padding-left:34px}
+.tl::before{content:"";position:absolute;left:9px;top:0;bottom:0;border-left:2px dashed var(--br)}
+.ent{position:relative;background:var(--card);border:1px solid rgba(136,121,107,.35);padding:18px 20px;margin-bottom:28px;box-shadow:0 4px 12px rgba(70,50,30,.12);transform:rotate(var(--r,0deg));transition:transform .25s}
+.ent:hover{transform:rotate(0) translateX(4px)}
+.ent::before{content:"";position:absolute;left:-33px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--ter);border:3px solid var(--bg)}
+.ent .d{color:var(--ter);font-size:1.5rem;line-height:1}.ent h3{font-size:1.8rem}.ent p{margin:6px 0 4px;white-space:pre-wrap}
+.ent img{width:min(240px,100%);border:8px solid #fffdf8;border-bottom-width:22px;box-shadow:0 4px 10px rgba(70,50,30,.25);transform:rotate(-2deg);margin:8px 0}
+.envs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.env{position:relative;aspect-ratio:3/2;background:#e8dbc0;border:0;color:#4b3f35;box-shadow:0 6px 16px rgba(70,50,30,.25);cursor:pointer;transform:rotate(var(--r,0deg));transition:transform .25s;padding:0;overflow:hidden}
+.env:hover{transform:rotate(0) translateY(-6px)}
+.flap{position:absolute;inset:0 0 auto;height:56%;background:#d8c8a8;clip-path:polygon(0 0,100% 0,50% 100%)}
+.seal{position:absolute;left:50%;top:50%;width:36px;height:36px;margin:-24px 0 0 -18px;border-radius:50%;background:var(--ter);color:#fff;display:grid;place-items:center}
+.to{position:absolute;inset:auto 0 12% 0;text-align:center;font:600 1.4rem/1.1 'Caveat',cursive}.to b{display:block;font-size:2rem}
+.jokes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.joke{background:var(--card);border:1px solid rgba(136,121,107,.4);border-left:6px solid var(--sage);padding:18px;cursor:pointer;box-shadow:0 4px 12px rgba(70,50,30,.12);transform:rotate(var(--r,0deg));transition:transform .25s,background .3s}
+.joke:hover{transform:rotate(0) scale(1.02)}.joke h3{font-size:1.6rem}
+.joke .s{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s,opacity .5s;font-size:1.5rem;line-height:1.25;color:var(--ter);white-space:pre-wrap}
+.joke .h{color:var(--br);font-size:.85rem;margin:6px 0 0}
+.joke.on{background:#f3e3d4;color:#4b3f35}.joke.on .s{max-height:400px;opacity:1;margin-top:8px}.joke.on .h{display:none}
+.joke.on h3{color:#4b3f35}.joke.on .sm{color:#A65F48}
+footer{margin-top:80px;text-align:center;padding:48px 20px 90px;border-top:1px dashed var(--br)}
+footer p{margin:6px 0}footer .big2{font:italic 600 clamp(1.5rem,4vw,2.1rem) 'Cormorant Garamond',serif}footer .hand{color:var(--ter);font-size:1.7rem}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:25;border-radius:30px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+#ov{position:fixed;inset:0;background:rgba(40,28,20,.65);display:none;place-items:center;padding:16px;z-index:50}
+#ov.on{display:grid}
+#ovc{width:min(560px,100%);max-height:88vh;overflow:auto;animation:pop .3s}
+@keyframes pop{from{transform:scale(.92) rotate(-2deg);opacity:0}}
+.fm,.msg{background:var(--card);padding:22px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.fm label{display:block;margin:12px 0 0;font-size:.9rem;color:var(--br)}
+.fm input,.fm textarea{width:100%;margin-top:4px;padding:10px;background:var(--bg);color:var(--ink);border:1px solid var(--br);font:inherit;border-radius:3px}
+.row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.paper{background:#fdf9ef repeating-linear-gradient(transparent 0 31px,rgba(137,145,122,.4) 31px 32px);color:#4b3f35;padding:28px 26px;box-shadow:0 12px 30px rgba(0,0,0,.4);font:600 1.5rem/32px 'Caveat',cursive}
+.paper h3{font:600 2.8rem/1.1 'Caveat',cursive;color:#A65F48;margin-bottom:8px}.paper p{margin:0;white-space:pre-wrap}.paper .sig{text-align:right;margin-top:16px}
+.paper .btn.ghost{color:#4b3f35;border-color:#88796B;font-size:.9rem}
+#toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:3px;opacity:0;transition:.3s;z-index:60;pointer-events:none;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.book{position:relative;width:min(360px,84vw);aspect-ratio:3/4.1;margin:0 auto;perspective:1800px}
+.leaf{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.5,.1,.3,1),visibility 0s}
+.leaf.fl{transform:rotateY(-180deg);visibility:hidden;transition:transform .85s cubic-bezier(.5,.1,.3,1),visibility 0s .85s}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;place-items:center;background:#f8f1e1;border-radius:2px 8px 8px 2px;box-shadow:0 8px 22px rgba(70,50,30,.3),inset 10px 0 12px -10px rgba(0,0,0,.4)}
+.face .pol{width:84%}
+.face.back{transform:rotateY(180deg);background:#efe5d2 repeating-linear-gradient(transparent 0 27px,rgba(137,145,122,.35) 27px 28px);color:var(--ter);font-size:2.2rem}
+.bnav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin-top:26px}.bnav .hand{font-size:1.7rem;color:var(--ter)}
+.btn:disabled{opacity:.4;cursor:default;transform:none;box-shadow:none}
+.book::after{content:"";position:absolute;right:-10px;top:5px;bottom:5px;width:12px;border-radius:0 5px 5px 0;background:repeating-linear-gradient(90deg,#f8f1e1 0 2px,#cfc2a6 2px 3px);box-shadow:2px 3px 8px rgba(70,50,30,.25);transition:opacity .3s}
+.book.end::after{opacity:0}
+.face[data-a=pn]{cursor:pointer}
+.face:not(.back):not(.cv)::after{content:"";position:absolute;right:0;bottom:0;width:36px;height:36px;border-radius:0 0 8px 0;background:linear-gradient(135deg,transparent 50%,#d9cdb4 50%,#efe5d2);box-shadow:-2px -2px 4px rgba(0,0,0,.12)}
+.book.end .face::after{display:none}
+.face.cv{background:#A65F48 var(--grain);color:#FBF7EF;text-align:center;padding:28px;border-radius:2px 10px 10px 2px;box-shadow:0 8px 22px rgba(70,50,30,.35),inset 16px 0 18px -10px rgba(0,0,0,.5)}
+.face.cv::before{content:"";position:absolute;inset:14px 14px 14px 24px;border:1.5px solid rgba(251,247,239,.55);pointer-events:none}
+.cv h3{font:italic 600 clamp(2.4rem,10vw,3.3rem)/1 'Cormorant Garamond',serif;margin:10px 0 0}
+.cv .o{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.85}
+.cv .go{display:inline-block;margin-top:30px;font-size:1.6rem;animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(9px)}}
+.note{position:relative;max-width:560px;margin:0 auto 34px;background:#f6efc9;color:#4b3f35;padding:26px 24px 20px;box-shadow:0 6px 16px rgba(70,50,30,.25);transform:rotate(-1deg)}
+.note::before{content:"";position:absolute;top:-12px;left:50%;width:90px;height:26px;margin-left:-45px;background:rgba(137,145,122,.6);transform:rotate(3deg)}
+.note h3{font:700 1.8rem/1.4 'Aref Ruqaa','Caveat',serif;color:#A65F48;margin-bottom:6px}
+.note p{margin:0 0 8px}.note ul{margin:8px 0 10px;padding-inline-start:22px}.note li{margin:3px 0}
+.lead[lang=ar]{font:500 clamp(1.35rem,3.6vw,1.75rem)/1.8 'Aref Ruqaa',serif;font-style:normal;text-align:right}
+.hd h2,.hd .hand,nav a{font-family:'Aref Ruqaa',serif}
+.hd h2{font-weight:700;line-height:1.6}
+.fw{max-width:560px;margin:0 auto 36px}
+.fw textarea{width:100%;padding:14px;background:var(--card);color:var(--ink);border:1px solid var(--br);border-radius:3px;font:1.15rem/1.9 'Aref Ruqaa','DM Sans',serif;resize:vertical}
+.fw .row{justify-content:center}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:24px}
+.fn{position:relative;aspect-ratio:4/3;background:#f8f1e1;color:#4b3f35;border:0;box-shadow:0 5px 14px rgba(70,50,30,.25);cursor:pointer;transform:rotate(var(--r,0deg));transition:transform .25s;font:700 1.3rem 'Aref Ruqaa',serif;padding:10px}
+.fn:hover{transform:rotate(0) translateY(-4px)}
+.fn::before{content:"";position:absolute;top:0;left:0;border-style:solid;border-width:34px 34px 0 0;border-color:#d9cdb4 transparent transparent transparent}
+.paper.ar{font:700 1.3rem/32px 'Aref Ruqaa',serif;text-align:right}
+.paper.ar h3{font:700 2rem/1.6 'Aref Ruqaa',serif}
+.hd p[lang=ar]{font:400 1.2rem/1.9 'Aref Ruqaa',serif}
+section:not(.on){display:none!important}
+nav a.cur{color:var(--ter);border-bottom:2px solid var(--ter)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav dir="rtl"><a href="#home">الرئيسية</a><a href="#photos">الصور</a><a href="#story">حكايتنا</a><a href="#letters">جوابات</a><a href="#jokes">إفيهاتنا</a><a href="#farewell" style="font-family:'Aref Ruqaa',serif">رسالة وداع</a></nav>
+
+<section id="home" class="on">
+  <div>
+    <h1>To remember<span>.</span></h1>
+    <p class="lead" dir="rtl" lang="ar">للأيام العادية اللي بقت أحلى حكاياتنا. الضحك العشوائي، واليوم الطويل، واللحظات الصغيرة — كل حتة مننا تستاهل نحتفظ بيها.</p>
+    <p class="tag">Made of memories, held together by friendship.</p>
+    <div class="credit hand">Made with love by Rahma Hany</div>
+  </div>
+  <div style="position:relative;padding:20px"><figure class="pol big" id="hero" data-a="hero"></figure></div>
+  <input type="file" id="hin" accept="image/*" hidden>
+</section>
+
+<section id="photos">
+  <div class="hd"><div class="hand" dir="rtl" lang="ar">كومة الصور</div><h2 dir="rtl" lang="ar">الصور</h2><p dir="rtl" lang="ar">افتحوا الكتاب وقلّبوا في الصفحات، صورة صورة. دوسوا على الصفحة أو اسحبوا بإصبعكم أو استخدموا الأسهم. زودوا الصور اللي نفسكم فيها واكتبوا تعليق صغير تحت كل صورة.</p><button class="btn" data-a="ap">+ Add photos</button></div>
+  <input type="file" id="pin" accept="image/*" multiple hidden>
+  <div class="book" id="pbook"></div><div class="bnav" id="pnav"></div>
+</section>
+
+<section id="story">
+  <div class="hd"><div class="hand" dir="rtl" lang="ar">ذكرياتنا</div><h2 dir="rtl" lang="ar">حكايتنا</h2><p>The moments that mattered, in the order they happened.</p><button class="btn" id="addstory" data-a="as">+ Add a memory</button></div>
+  <div class="tl" id="tl"></div>
+</section>
+
+<section id="letters">
+  <div class="hd"><div class="hand" dir="rtl" lang="ar">جوابات صغيرة</div><h2 dir="rtl" lang="ar">جواب لكل واحدة فيكم</h2><p>Tap an envelope to open the letter inside.</p></div>
+  <div class="envs" id="envs"></div>
+</section>
+
+<section id="jokes">
+  <div class="hd"><div class="hand" dir="rtl" lang="ar">إفيهاتنا</div><h2 dir="rtl" lang="ar">إحنا بس اللي فاهمين.</h2><p>Nicknames, quotes, situations and stories nobody else would understand. Tap a card to reveal what’s behind it.</p>
+    <div class="row" style="justify-content:center"><button class="btn" data-a="rs">Reveal a secret</button><button class="btn ghost" data-a="aj">+ Add one</button></div></div>
+  <div class="note" dir="rtl" lang="ar"><h3>إزاي ده بيشتغل ✦</h3><p>كل كارت هنا عبارة عن إفيه واحد من إفيهاتنا. اكتبوا العنوان اللي أول ما نشوفه نعرفه على طول، وبعدين القصة المستخبية وراه. وأي حد هيدوس على الكارت هيقرأها.</p><p>تقدروا تكتبوا عن:</p><ul><li>لقب، وبتاع مين فينا</li><li>جملة حد قالها ومش هتتنسي أبدًا</li><li>موقف مضحك من المحاضرات أو الكلية أو المواصلات</li><li>موقف محرج (بحب طبعًا 😄)</li><li>أي حاجة محدش غيرنا هيفهمها</li></ul><p>دوسوا على «+ Add one» واكتبوا أي حاجة فاكرينها، ومتشغلوش بالكم بالصياغة. كل ما كانت عفوية وبتضحك كان أحلى.</p></div>
+  <div class="jokes" id="jgrid"></div>
+</section>
+
+<section id="farewell" dir="rtl" lang="ar">
+  <div class="hd"><div class="hand">كلمة أخيرة</div><h2>رسالة وداع</h2></div>
+  <div class="note"><h3>إزاي ده بيشتغل ✦</h3><p>هنا تقدروا تسيبوا رسالة وداع صغيرة لأيامنا مع بعض. من غير اسم: محدش هيعرف مين اللي كتبها، ولا كتبها لمين. الموقع مش بيحفظ أي اسم مع الرسالة.</p><p>اكتبوا اللي نفسكم تقولوه ومقدرتوش:</p><ul><li>شكر أو امتنان</li><li>اعتذار</li><li>أمنية</li><li>أو حتى ضحكة أخيرة</li></ul><p>من غير ما تذكروا أسماء لو عايزين الرسالة تفضل لغزًا جميلًا. بعد ما تبعتوا، الرسالة بتظهر تحت كورقة مطوية، وأي حد يدوس عليها هيقرأها. الرسائل بتظهر لكل اللي معاهم رابط الموقع عند تفعيل الحفظ المشترك.</p></div>
+  <div class="fw"><textarea id="fwt" maxlength="1500" rows="5" placeholder="اكتبوا رسالتكم هنا…"></textarea><div class="row"><button class="btn" data-a="fw">إرسال الرسالة 💌</button></div></div>
+  <div class="fgrid" id="fgrid"></div>
+</section>
+
+<div style="max-width:760px;margin:0 auto 24px;padding:0 20px;text-align:center;color:var(--br);font-size:.85rem">Shared mode becomes active after connecting the Supabase project. Anyone with the site link can currently add or edit shared memories once public access is enabled.</div>
+<footer>
+  <p class="big2">Collected with love, for the days we’ll miss.</p>
+  <p>To remember — a little piece of our university years.</p>
+  <p class="hand">Made by Rahma Hany.</p>
+</footer>
+
+<button class="btn fab" data-a="rm">✦ Random memory</button>
+<div style="position:fixed;left:12px;bottom:14px;z-index:25;display:flex;gap:6px;flex-wrap:wrap">
+  <button class="btn ghost" style="background:var(--card);padding:8px 10px;font-size:.78rem" data-a="backup">حفظ نسخة</button>
+  <button class="btn ghost" style="background:var(--card);padding:8px 10px;font-size:.78rem" data-a="restore">استيراد نسخة</button>
+  <input type="file" id="restoreFile" accept="application/json,.json" hidden>
+</div>
+<div id="ov"><div id="ovc"></div></div>
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const $=s=>document.querySelector(s);
+const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const N=['Nada Medhat','Bassant Magdy','Basmala Ragap','Shahd Zein','Mariam Galal'];
+const DEF={
+  photos:[],
+  story:[['s0','When we first met','Write about the very first day. Who sat where, and what you remember.'],['s3','Another memory in the making','The story isn’t over yet.']].map(a=>({id:a[0],date:'Year',title:a[1],desc:a[2]})),
+  letters:N.map((n,i)=>({id:'l'+i,name:n,from:'Rahma',text:'Dear '+n.split(' ')[0]+',\n\nThank you for every laugh, every long day and every ordinary moment that turned into a favourite memory. I’m so lucky it was you.\n\n(This is a placeholder. Tap “Edit letter” to write your own words.)'})),
+  jokes:[['A nickname','Tap “Edit” and write who it belongs to, and how it started.'],['An iconic quote','Write the quote and who said it.'],['That embarrassing moment','The story only this group is allowed to tell.']].map((a,i)=>({id:'j'+i,title:a[0],secret:a[1]}))
+};
+const T={
+  s:{c:'story',n:'memory',f:[{k:'date',l:'Date or year'},{k:'title',l:'Memory title'},{k:'desc',l:'Description',t:'a'},{k:'img',l:'Photo (optional)',t:'f'}]},
+  p:{c:'photos',n:'photo',f:[{k:'img',l:'Photo',t:'f'},{k:'cap',l:'Caption'}]},
+  j:{c:'jokes',n:'inside joke',f:[{k:'title',l:'The joke, quote or nickname'},{k:'secret',l:'The hidden story',t:'a'}]},
+  l:{c:'letters',n:'letter',f:[{k:'name',l:'Name'},{k:'text',l:'Letter',t:'a',r:10},{k:'from',l:'Signed'}]}
+};
+const R={photos:{},story:{},letters:{},jokes:{},meta:{},farewell:{}};
+// Add your Supabase Project URL and anon/publishable key here after creating the project.
+const SUPABASE_URL='https://mxgyelqdrtivqxnbhqix.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_fVQNuwYX_sZme1E6Ugg5ZA_O6qt4QJQ';
+let sharedDb=null;
+if(window.supabase && SUPABASE_URL.startsWith('https://') && !SUPABASE_URL.includes('PASTE_') && !SUPABASE_ANON_KEY.includes('PASTE_')){
+  sharedDb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+}
+async function syncRecord(category,id,data){
+  if(!sharedDb)return;
+  try{
+    const payload={...data};
+    if(typeof payload.img==='string' && payload.img.startsWith('data:image/')){
+      const parts=payload.img.split(',');
+      const mime=(parts[0].match(/data:(.*?);base64/)||[])[1]||'image/jpeg';
+      const bytes=Uint8Array.from(atob(parts[1]),c=>c.charCodeAt(0));
+      const path=category+'/'+id+'.jpg';
+      const {error:upErr}=await sharedDb.storage.from('memory-images').upload(path,new Blob([bytes],{type:mime}),{upsert:true,contentType:mime});
+      if(upErr)throw upErr;
+      payload.img=sharedDb.storage.from('memory-images').getPublicUrl(path).data.publicUrl;
+    }
+    const {error}=await sharedDb.from('memories').upsert({id:category+':'+id,category,record_id:id,payload,updated_at:new Date().toISOString()});
+    if(error)throw error;
+    toast('اتحفظت التعديلات وظهرت للجميع ♥');
+  }catch(err){console.error(err);toast('الحفظ المشترك فشل. راجعي إعدادات قاعدة البيانات والإنترنت.');}
+}
+async function loadShared(){
+  if(!sharedDb)return;
+  try{
+    const {data,error}=await sharedDb.from('memories').select('category,record_id,payload');
+    if(error)throw error;
+    for(const row of (data||[])){
+      if(R[row.category])R[row.category][row.record_id]=row.payload;
+    }
+    localStorage.setItem('to_remember_site_v1',JSON.stringify(R));
+    render();toast('اتحمّلت الذكريات المشتركة ♥');
+    sharedDb.channel('shared-memories-live').on('postgres_changes',{event:'*',schema:'public',table:'memories'},change=>{
+      const row=change.new||change.old;
+      if(!row||!R[row.category])return;
+      if(change.eventType==='DELETE')delete R[row.category][row.record_id];
+      else R[row.category][row.record_id]=row.payload;
+      try{localStorage.setItem('to_remember_site_v1',JSON.stringify(R));}catch(e){}
+      render();
+    }).subscribe();
+  }catch(err){console.error(err);toast('تعذر تحميل الذكريات المشتركة. راجعي إعدادات Supabase.');}
+}
+const open=new Set();let db=null,cb=null;
+const rot=i=>[-3,2,-1.5,3,-2.5,1.5][i%6];
+const nid=()=>'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+function list(c){
+  const m=R[c],d=DEF[c]||[];
+  const base=d.map(x=>Object.assign({},x,m[x.id]));
+  const extra=Object.values(m).filter(x=>x&&!d.some(y=>y.id===x.id)).sort((a,b)=>(a.ts||0)-(b.ts||0));
+  return base.concat(extra).filter(x=>!x.deleted);
+}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3200)}
+async function save(c,id,d){
+  const o=Object.assign({},R[c][id],{id},d);R[c][id]=o;
+  try{
+    localStorage.setItem('to_remember_site_v1',JSON.stringify(R));
+    render();
+    if(sharedDb)await syncRecord(c,id,o);
+    else toast('اتحفظت التعديلات على الجهاز ♥');
+  }catch(e){
+    render();toast('مساحة التخزين امتلأت. صدّري نسخة احتياطية أو قللي الصور.');
+  }
+}
+function shrink(f){return new Promise((ok,no)=>{const r=new FileReader();r.onerror=no;r.onload=()=>{const i=new Image();i.onerror=no;i.onload=()=>{const k=Math.min(1,800/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.68))};i.src=r.result};r.readAsDataURL(f)})}
+function ov(h){$('#ovc').innerHTML=h;$('#ov').classList.add('on')}
+function x(){$('#ov').classList.remove('on');cb=null}
+function form(title,fs,v,fn){
+  cb=async()=>{const d={};for(const f of fs){const el=$('#f_'+f.k);if(f.t==='f'){if(el.files[0]){try{d[f.k]=await shrink(el.files[0])}catch(e){toast('That image couldn’t be read.');return}}}else d[f.k]=el.value}x();fn(d)};
+  ov('<div class="fm"><h3 style="font-size:2rem">'+E(title)+'</h3>'+fs.map(f=>'<label>'+E(f.l)+(f.t==='a'?'<textarea id="f_'+f.k+'" rows="'+(f.r||5)+'">'+E(v[f.k])+'</textarea>':f.t==='f'?'<input id="f_'+f.k+'" type="file" accept="image/*">':'<input id="f_'+f.k+'" value="'+E(v[f.k])+'">')+'</label>').join('')+'<div class="row"><button class="btn" data-a="sv">Save</button><button class="btn ghost" data-a="x">Cancel</button></div></div>');
+}
+function letter(l){ov('<div class="paper"><h3>'+E(l.name)+'</h3><p>'+E(l.text)+'</p><p class="sig">— '+E(l.from)+'</p><div class="row"><button class="btn ghost" data-a="el" data-id="'+l.id+'">Edit letter</button><button class="btn ghost" data-a="x">Close</button></div></div>')}
+function render(){
+  const h=R.meta.hero&&R.meta.hero.img;
+  $('#hero').innerHTML='<i class="tape"></i>'+(h?'<img src="'+h+'" alt="Our favourite photo">':'<div class="ph">Tap to add<br>our favourite photo</div>')+'<figcaption>made of memories ♥</figcaption><button class="stamp" data-a="stamp" aria-label="A little secret"><span>EST.<b>UNI</b>FOREVER</span></button>';
+  book();
+  $('#addstory').hidden=!canEdit;
+  $('#fgrid').innerHTML=list('farewell').reverse().map((m,i)=>'<button class="fn" style="--r:'+rot(i)+'deg" data-a="ow" data-id="'+m.id+'" aria-label="افتحوا رسالة">رسالة وداع ♥</button>').join('')||'<p class="empty" style="font-family:\'Aref Ruqaa\',serif">لسه مفيش رسائل. اكتبوا أول رسالة 💌</p>';
+  $('#tl').innerHTML=list('story').map((s,i)=>'<article class="ent" style="--r:'+(i%2?.6:-.6)+'deg"><div class="d hand">'+E(s.date)+'</div><h3>'+E(s.title)+'</h3><p>'+E(s.desc)+'</p>'+(s.img?'<img src="'+s.img+'" alt="">':'')+(canEdit?'<div><button class="sm" data-a="es" data-id="'+s.id+'">Edit</button><button class="sm" data-a="ds" data-id="'+s.id+'">Delete</button></div>':'')+'</article>').join('');
+  $('#envs').innerHTML=list('letters').map((l,i)=>'<button class="env" style="--r:'+rot(i)+'deg" data-a="ol" data-id="'+l.id+'" aria-label="Open the letter for '+E(l.name)+'"><span class="flap"></span><span class="seal">♥</span><span class="to">For<b>'+E(l.name)+'</b></span></button>').join('');
+  $('#jgrid').innerHTML=list('jokes').map((j,i)=>'<div class="joke'+(open.has(j.id)?' on':'')+'" id="jk_'+j.id+'" style="--r:'+rot(i+2)*.5+'deg" data-a="tj" data-id="'+j.id+'"><h3>'+E(j.title)+'</h3><p class="h">tap to reveal ✦</p><div class="s hand">'+E(j.secret)+'</div><div><button class="sm" data-a="ej" data-id="'+j.id+'">Edit</button><button class="sm" data-a="dj" data-id="'+j.id+'">Delete</button></div></div>').join('');
+}
+const sure=(b,fn)=>{if(b.dataset.s){fn();return}b.dataset.s=1;const t=b.textContent;b.textContent='Sure?';setTimeout(()=>{delete b.dataset.s;b.textContent=t},2500)};
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');
+  if(!b){if(e.target.id==='ov')x();return}
+  const a=b.dataset.a,id=b.dataset.id;
+  if(b.classList.contains('sm'))e.stopPropagation();
+  if(a==='x')return x();
+  if(a==='pn')return turn(1);
+  if(a==='pv')return turn(-1);
+  if(a==='ow')return fnote(list('farewell').find(m=>m.id===id));
+  if(a==='dw'){save('farewell',id,{deleted:true,text:''});x();return toast('اتمسحت الرسالة.')}
+  if(a==='fw'){
+    const t=$('#fwt').value.trim();if(!t)return toast('اكتبوا رسالتكم الأول 💛');
+    const nid2=nid();addMine(nid2);toast('الرسالة اتبعتت من غير اسم ♥');
+    save('farewell',nid2,{text:t,ts:Date.now()});$('#fwt').value='';return;
+  }
+  if(a==='sv')return cb&&cb();
+  if(a==='hero')return $('#hin').click();
+  if(a==='ap')return $('#pin').click();
+  if(a==='stamp'){e.stopPropagation();return toast('You found a little secret: this page was made just for you. ♥')}
+  if(a==='tj'){open.has(id)?open.delete(id):open.add(id);return render()}
+  if(a==='ol')return letter(list('letters').find(l=>l.id===id));
+  if(a==='rs'){
+    const all=list('jokes');if(!all.length)return toast('Add an inside joke first.');
+    let c=all.filter(j=>!open.has(j.id));if(!c.length){open.clear();c=all}
+    const j=c[Math.floor(Math.random()*c.length)];open.add(j.id);render();
+    return $('#jk_'+j.id).scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  if(a==='rm'){
+    const pool=[].concat(list('photos').map(p=>({k:'p',p})),list('story').map(s=>({k:'s',p:s})),list('jokes').map(j=>({k:'j',p:j})));
+    const r=pool[Math.floor(Math.random()*pool.length)].p,k=pool.find(o=>o.p===r).k;
+    return ov(k==='p'?'<figure class="pol" style="margin:10px auto;max-width:360px;--r:-2deg"><i class="tape"></i><img src="'+r.img+'" alt=""><figcaption>'+E(r.cap)+'</figcaption></figure>':'<div class="paper"><h3>'+E(r.title)+'</h3><p>'+E(k==='s'?r.desc:r.secret)+'</p><div class="row"><button class="btn ghost" data-a="x">Close</button></div></div>');
+  }
+  const op=a[0],t=T[a[1]];if(!t||a.length!==2)return;
+  if(t.c==='story'&&!canEdit)return;
+  if(op==='a'){return form('Add a '+t.n,t.f,{},d=>save(t.c,nid(),Object.assign({ts:Date.now()},d)))}
+  const it=list(t.c).find(i=>i.id===id);if(!it)return;
+  if(op==='e'){const fs=a[1]==='p'?t.f.filter(f=>f.k!=='img'):t.f;return form('Edit '+t.n,fs,it,d=>{save(t.c,id,d);if(a[1]==='l')letter(list('letters').find(l=>l.id===id))})}
+  if(op==='d')sure(b,()=>save(t.c,id,{deleted:true,img:''}));
+});
+$('#pin').onchange=async e=>{
+  for(const f of e.target.files){try{const img=await shrink(f);save('photos',nid(),{img,cap:'',ts:Date.now()})}catch(x){toast('One image couldn’t be read.')}}
+  e.target.value='';
+};
+$('#hin').onchange=async e=>{if(e.target.files[0]){try{save('meta','hero',{img:await shrink(e.target.files[0])})}catch(x){toast('That image couldn’t be read.')}}e.target.value=''};
+const mine=()=>{try{return JSON.parse(localStorage.getItem('fw_mine')||'[]')}catch(e){return[]}};
+const addMine=id=>{try{localStorage.setItem('fw_mine',JSON.stringify(mine().concat(id)))}catch(e){}};
+function fnote(m){
+  if(!m)return;
+  ov('<div class="paper ar" dir="rtl" lang="ar"><h3>رسالة وداع</h3><p>'+E(m.text)+'</p><div class="row">'+(mine().includes(m.id)?'<button class="btn ghost" data-a="dw" data-id="'+m.id+'">مسح رسالتي</button>':'')+'<button class="btn ghost" data-a="x">إغلاق</button></div></div>');
+}
+let pg=0,sx=null,canEdit=false;
+const VIEWS=['home','photos','story','letters','jokes','farewell'];
+function route(){
+  const h=location.hash.slice(1),v=VIEWS.includes(h)?h:'home';
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===v));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('cur',a.getAttribute('href')==='#'+v));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+addEventListener('hashchange',route);route();
+function nav(){
+  const ph=list('photos'),n=ph.length;
+  $('#pbook').classList.toggle('end',pg>=n);
+  if(!n){$('#pnav').innerHTML='<p class="empty">The book is empty. Add your first photo above.</p>';return}
+  $('#pnav').innerHTML='<button class="btn ghost" data-a="pv"'+(pg?'':' disabled')+'>‹ Back</button><span class="hand">'+(pg?pg+' / '+n:'closed')+'</span><button class="btn" data-a="pn"'+(pg<n?'':' disabled')+'>'+(pg?'Next ›':'Open the book ›')+'</button>'+(pg?'<div class="ctl" style="width:100%"><button class="sm" data-a="ep" data-id="'+ph[pg-1].id+'">Edit caption</button><button class="sm" data-a="dp" data-id="'+ph[pg-1].id+'">Delete</button></div>':'');
+}
+function book(){
+  const ph=list('photos'),n=ph.length;pg=Math.min(pg,n);
+  const cv='<div class="leaf'+(pg>0?' fl':'')+'" style="z-index:'+(n+1)+'"><div class="face cv" data-a="pn"><div><div class="o">To remember.</div><h3>Book of Memories</h3><div class="go hand">tap to open →</div></div></div><div class="face back hand"></div></div>';
+  $('#pbook').innerHTML=cv+ph.map((p,i)=>'<div class="leaf'+(i+1<pg?' fl':'')+'" style="z-index:'+(n-i)+'"><div class="face" data-a="pn"><figure class="pol" style="--r:'+rot(i)*.6+'deg"><i class="tape'+(i%2?' g':'')+'"></i><img src="'+p.img+'" alt="'+E(p.cap||'Photo')+'"><figcaption>'+(E(p.cap)||'<span style="opacity:.45">add a caption…</span>')+'</figcaption></figure></div><div class="face back hand">'+(i+1)+'</div></div>').join('');
+  nav();
+}
+function turn(d){
+  const n=list('photos').length,k=Math.max(0,Math.min(n,pg+d));
+  if(k===pg)return;pg=k;
+  document.querySelectorAll('.leaf').forEach((l,i)=>l.classList.toggle('fl',i<pg));nav();
+}
+$('#pbook').addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+$('#pbook').addEventListener('touchend',e=>{if(sx===null)return;const d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>45)turn(d<0?1:-1)});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')x();
+  if(/INPUT|TEXTAREA/.test(e.target.tagName)||$('#ov').classList.contains('on'))return;
+  if(e.key==='ArrowRight')turn(1);if(e.key==='ArrowLeft')turn(-1);
+});
+// Local backup plus optional shared Supabase database.
+canEdit=true;
+try{
+  const saved=JSON.parse(localStorage.getItem('to_remember_site_v1')||'null');
+  if(saved && typeof saved==='object'){
+    ['photos','story','letters','jokes','meta','farewell'].forEach(c=>{
+      if(saved[c] && typeof saved[c]==='object')R[c]=saved[c];
+    });
+  }
+}catch(e){console.warn('Could not load saved site data',e)}
+render();
+if(sharedDb){toast('بنحمّل الذكريات المشتركة…');loadShared();}
+else toast('الموقع جاهز. أضيفي بيانات Supabase لتفعيل المشاركة بين الجميع.');
+
+$('#restoreFile').addEventListener('change',async e=>{
+  const file=e.target.files[0];if(!file)return;
+  try{
+    const data=JSON.parse(await file.text());
+    ['photos','story','letters','jokes','meta','farewell'].forEach(c=>{
+      if(data[c] && typeof data[c]==='object')R[c]=data[c];
+    });
+    localStorage.setItem('to_remember_site_v1',JSON.stringify(R));
+    render();toast('تم استيراد النسخة الاحتياطية ♥');
+  }catch(err){toast('ملف النسخة الاحتياطية غير صالح.')}
+  e.target.value='';
+});
+</script>
+</body>
+</html>
